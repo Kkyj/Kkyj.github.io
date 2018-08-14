@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="第一步：BIOS前提：“只读内存”ROM发明后，开机程序刷入ROM，该程序叫做“基本输入输出系统”简称BIOS 1、计算机通电后首先读取ROM中的开机程序 ​    细节：电源刚开始供电时，电压还不稳定，主板控制芯片向CPU发出一个reset（重置）信号，让CPU初始化，稳定供电后，芯片撤去reset信号，CPU会自动的将其CS寄存器设定为0xFFFF，将其IP寄存器设定为0x0000。由于CS:">
+<meta name="description" content="原题题解：因为题目数据量不大，所以其实一维二维都可以。在这里将矩阵用一串二进制数表示，异或操作进行翻转，注意判断行列。‘’’ #include #include #include #include #includeusing namespace std; #define ll long longint num[17]= {0};int k;int pd()//判断是否全部同向{    int i;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="简述计算机启动过程">
-<meta property="og:url" content="http://yoursite.com/2018/04/14/简述计算机启动过程/index.html">
+<meta property="og:title" content="浮生若梦，为欢几何">
+<meta property="og:url" content="http://yoursite.com/2018/08/14/POJ 1753 Flip Game(状压+搜索)/index.html">
 <meta property="og:site_name" content="浮生若梦，为欢几何">
-<meta property="og:description" content="第一步：BIOS前提：“只读内存”ROM发明后，开机程序刷入ROM，该程序叫做“基本输入输出系统”简称BIOS 1、计算机通电后首先读取ROM中的开机程序 ​    细节：电源刚开始供电时，电压还不稳定，主板控制芯片向CPU发出一个reset（重置）信号，让CPU初始化，稳定供电后，芯片撤去reset信号，CPU会自动的将其CS寄存器设定为0xFFFF，将其IP寄存器设定为0x0000。由于CS:">
+<meta property="og:description" content="原题题解：因为题目数据量不大，所以其实一维二维都可以。在这里将矩阵用一串二进制数表示，异或操作进行翻转，注意判断行列。‘’’ #include #include #include #include #includeusing namespace std; #define ll long longint num[17]= {0};int k;int pd()//判断是否全部同向{    int i;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-15T05:45:18.210Z">
+<meta property="og:updated_time" content="2018-08-14T09:01:29.539Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="简述计算机启动过程">
-<meta name="twitter:description" content="第一步：BIOS前提：“只读内存”ROM发明后，开机程序刷入ROM，该程序叫做“基本输入输出系统”简称BIOS 1、计算机通电后首先读取ROM中的开机程序 ​    细节：电源刚开始供电时，电压还不稳定，主板控制芯片向CPU发出一个reset（重置）信号，让CPU初始化，稳定供电后，芯片撤去reset信号，CPU会自动的将其CS寄存器设定为0xFFFF，将其IP寄存器设定为0x0000。由于CS:">
+<meta name="twitter:title" content="浮生若梦，为欢几何">
+<meta name="twitter:description" content="原题题解：因为题目数据量不大，所以其实一维二维都可以。在这里将矩阵用一串二进制数表示，异或操作进行翻转，注意判断行列。‘’’ #include #include #include #include #includeusing namespace std; #define ll long longint num[17]= {0};int k;int pd()//判断是否全部同向{    int i;">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/14/简述计算机启动过程/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/14/POJ 1753 Flip Game(状压+搜索)/"/>
 
 
 
 
 
-  <title>简述计算机启动过程 | 浮生若梦，为欢几何</title>
+  <title> | 浮生若梦，为欢几何</title>
   
 
 
@@ -236,7 +236,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/14/简述计算机启动过程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/14/POJ 1753 Flip Game(状压+搜索)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kyj">
@@ -253,7 +253,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">简述计算机启动过程</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -265,8 +265,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-14T13:17:49+08:00">
-                2018-04-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-14T17:01:29+08:00">
+                2018-08-14
               </time>
             
 
@@ -303,18 +303,17 @@
       
 
       
-        <h2 id="第一步：BIOS"><a href="#第一步：BIOS" class="headerlink" title="第一步：BIOS"></a>第一步：BIOS</h2><p>前提：“只读内存”ROM发明后，开机程序刷入ROM，该程序叫做“基本输入输出系统”简称BIOS</p>
-<p><strong>1、计算机通电后首先读取ROM中的开机程序</strong></p>
-<p>​    细节：电源刚开始供电时，电压还不稳定，主板控制芯片向CPU发出一个reset（重置）信号，让CPU初始化，稳定供电后，芯片撤去reset信号，CPU会自动的将其CS寄存器设定为0xFFFF，将其IP寄存器设定为0x0000。由于CS:IP指出了下一条指令的地址，因此CPU会跳到0xFFFF:0x0000处开始执行命令，而它只是存放一条跳转指令，跳转到BIOS可执行代码区。</p>
-<p><strong>2、BIOS程序首先加电自检POST，就是查看计算机关键硬件能否满足运行的基本条件</strong></p>
-<p>​    细节：因为POST检测过程在显卡初始化之前，如果发现错误是无法通过屏幕显示的，所以当POST自检中发现致命错误，是通过不同含义的声音（长短和次数）警告，然后启动终止。在正常情况下，POST过程进行得非常快，几乎无法感觉到它的存在，POST结束之后就会调用其它代码来进行更完整的硬件检测。</p>
-<p><strong>3、接下来BIOS将查找其他设备的BIOS</strong></p>
-<p>​    细节：首先查找显卡的BIOS，这时多数显卡会在屏幕上显示一些初始信息，如生产厂商、图形芯片类型等内容。接着查找完所有其他设备的BIOS 之后，系统BIOS 将显示出自己的启动画面，包括系统BIOS的类型、序列号和版本号等内容，同时屏幕底端左下角会出现主板信息代码，包含bios的日期、主板芯片组型号、主板的识别编码及厂商代码等。</p>
-<p><strong>4、最后BIOS 进行其他检测</strong></p>
-<p>​    细节：首先<em>检测cpu的类型和工作频率</em>，并将检测结果显示在屏幕上，然后系统BIOS开始<em>测试主机所有的内存容量</em>，并同时在屏幕上显示内存测试的数值，接下来开始<em>检测系统中安装的一些标准硬件设备</em>，这些设备包括硬盘、cd-rom、软驱等设备。标准设备检测完后，系统BIOS内部的支持即插即用的代码将开始<em>检测和配置系统中安装的即插即用设备</em>，每找到一个设备之后，系统bios都会在屏幕上显示出设备的名称和型号等信息，同时为该设备分配中断、dma通道和i／0端口等资源。</p>
-<p>所有硬件检测配置完后，。</p>
-<p>##第二步：</p>
-<p>待续未完。。。</p>
+        <p><a href="https://cn.vjudge.net/contest/246672#problem/A" target="_blank" rel="noopener">原题</a><br>题解：因为题目数据量不大，所以其实一维二维都可以。在这里将矩阵用一串二进制数表示，异或操作进行翻转，注意判断行列。<br>‘’’</p>
+<p>#include<iostream></iostream></p>
+<p>#include<cstdio></cstdio></p>
+<p>#include<algorithm></algorithm></p>
+<p>#include<cstring></cstring></p>
+<p>#include<cmath><br>using namespace std;</cmath></p>
+<p>#define ll long long<br>int num[17]= {0};<br>int k;<br>int pd()//判断是否全部同向<br>{<br>    int i;<br>    for(i=2; i&lt;=16; i++)<br>        if(num[i]!=num[i-1])return 0;<br>    return 1;</p>
+<p>}<br>void fz(int i)//翻转操作<br>{<br>    num[i]^=1;<br>    if(i%4!=0)num[i+1]^=1;//不在最后一列<br>    if(i%4!=1)num[i-1]^=1;//不在第一列<br>    if(i&gt;4)num[i-4]^=1;//不在第一行<br>    if(i&lt;13)num[i+4]^=1;//不在最后一行<br>}<br>void bfs(int j,int now,int all)//枚举过程，j指到了第几个棋子，now指现在翻转的次数，all指这一轮应当翻转的总次数（1-16）<br>{<br>    int i;<br>    if(now==all)//翻转次数到这一轮最大值<br>    {<br>        k=pd();<br>        return;<br>    }<br>    for(i=j+1; i&lt;=16; i++)//广搜本质<br>    {<br>        fz(i);<br>        bfs(i,now+1,all);<br>        if(k) return;<br>        fz(i);//还原。<br>    }<br>}<br>int main()<br>{<br>    char a;<br>    int i;<br>    ios::sync_with_stdio(false);<br>    for(i=1; i&lt;=16; i++)<br>    {<br>        cin&gt;&gt;a;<br>        if(a==’w’)<br>            num[i]=1;<br>    }<br>    k=pd();<br>    if(k)cout&lt;&lt;0&lt;&lt;endl;<br>    else<br>    {<br>        for( i=1; i&lt;=16; i++)//一次遍历找出最小翻转次数<br>        {<br>            k=0;<br>            bfs(0,0,i);<br>            if(k)break;<br>        }<br>        if(k)cout&lt;&lt;i&lt;&lt;endl;<br>        else cout&lt;&lt;”Impossible”&lt;&lt;endl;<br>    }</p>
+<pre><code>return 0;
+</code></pre><p>}</p>
+<p>‘’’</p>
 
       
     </div>
@@ -339,8 +338,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/13/linux介绍及基于win10的Ubuntu安装/" rel="next" title="linux介绍及基于win10的Ubuntu安装">
-                <i class="fa fa-chevron-left"></i> linux介绍及基于win10的Ubuntu安装
+              <a href="/2018/04/14/简述计算机启动过程/" rel="next" title="简述计算机启动过程">
+                <i class="fa fa-chevron-left"></i> 简述计算机启动过程
               </a>
             
           </div>
@@ -348,10 +347,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/14/POJ 1753 Flip Game(状压+搜索)/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -403,17 +398,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -462,22 +448,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步：BIOS"><span class="nav-number">1.</span> <span class="nav-text">第一步：BIOS</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
