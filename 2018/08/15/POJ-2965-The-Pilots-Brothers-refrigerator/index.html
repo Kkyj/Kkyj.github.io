@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="##POJ 2965-The Pilots Brothers’ refrigerator 这道题和POJ 1753相似，但这里借鉴到了更好的算法： 情况： 1、这道题不存在impossible的情况，说明最多把所有‘+’都改一次可以实现全部符号为‘-’。 2、这道题的关键在于如何改变‘+’，而不改变与它关联的行和列。 解决： 实现1：用一个二维数组初始化为0，’+‘的位置记为1，接下来依次改变’+">
+<meta name="description" content="##POJ 2965-The Pilots Brothers’ refrigerator 原题 题目大意：题目中给出的状态图包括’+’,’-‘,要求将其全部翻转成’-‘，每次翻转一个位置,那么它所在的行和列都要翻转 问最小翻转次数,同时输出翻转路径。 题解：这道题和POJ 1753相似，但这里借鉴到了更好的算法： 情况： 1、这道题不存在impossible的情况，说明最多把所有‘+’都改一次可以">
 <meta property="og:type" content="article">
 <meta property="og:title" content="POJ 2965- The Pilots Brothers&#39; refrigerator">
 <meta property="og:url" content="http://yoursite.com/2018/08/15/POJ-2965-The-Pilots-Brothers-refrigerator/index.html">
 <meta property="og:site_name" content="浮生若梦，为欢几何">
-<meta property="og:description" content="##POJ 2965-The Pilots Brothers’ refrigerator 这道题和POJ 1753相似，但这里借鉴到了更好的算法： 情况： 1、这道题不存在impossible的情况，说明最多把所有‘+’都改一次可以实现全部符号为‘-’。 2、这道题的关键在于如何改变‘+’，而不改变与它关联的行和列。 解决： 实现1：用一个二维数组初始化为0，’+‘的位置记为1，接下来依次改变’+">
+<meta property="og:description" content="##POJ 2965-The Pilots Brothers’ refrigerator 原题 题目大意：题目中给出的状态图包括’+’,’-‘,要求将其全部翻转成’-‘，每次翻转一个位置,那么它所在的行和列都要翻转 问最小翻转次数,同时输出翻转路径。 题解：这道题和POJ 1753相似，但这里借鉴到了更好的算法： 情况： 1、这道题不存在impossible的情况，说明最多把所有‘+’都改一次可以">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-15T11:39:49.679Z">
+<meta property="og:updated_time" content="2018-08-15T11:48:31.656Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="POJ 2965- The Pilots Brothers&#39; refrigerator">
-<meta name="twitter:description" content="##POJ 2965-The Pilots Brothers’ refrigerator 这道题和POJ 1753相似，但这里借鉴到了更好的算法： 情况： 1、这道题不存在impossible的情况，说明最多把所有‘+’都改一次可以实现全部符号为‘-’。 2、这道题的关键在于如何改变‘+’，而不改变与它关联的行和列。 解决： 实现1：用一个二维数组初始化为0，’+‘的位置记为1，接下来依次改变’+">
+<meta name="twitter:description" content="##POJ 2965-The Pilots Brothers’ refrigerator 原题 题目大意：题目中给出的状态图包括’+’,’-‘,要求将其全部翻转成’-‘，每次翻转一个位置,那么它所在的行和列都要翻转 问最小翻转次数,同时输出翻转路径。 题解：这道题和POJ 1753相似，但这里借鉴到了更好的算法： 情况： 1、这道题不存在impossible的情况，说明最多把所有‘+’都改一次可以">
 
 
 
@@ -304,20 +304,17 @@
 
       
         <p>##POJ 2965-The Pilots Brothers’ refrigerator</p>
-<p>这道题和POJ 1753相似，但这里借鉴到了更好的算法：</p>
+<p><a href="https://cn.vjudge.net/contest/246672#problem/B" target="_blank" rel="noopener">原题</a></p>
+<h3 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h3><p>题目中给出的状态图包括’+’,’-‘,要求将其全部翻转成’-‘，每次翻转一个位置,那么它所在的行和列都要翻转</p>
+<p>问最小翻转次数,同时输出翻转路径。</p>
+<h3 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h3><p>这道题和POJ 1753相似，但这里借鉴到了更好的算法：</p>
 <p>情况：</p>
 <p>1、这道题不存在impossible的情况，说明最多把所有‘+’都改一次可以实现全部符号为‘-’。</p>
 <p>2、这道题的关键在于如何改变‘+’，而不改变与它关联的行和列。</p>
 <p>解决：</p>
 <p>实现1：用一个二维数组初始化为0，’+‘的位置记为1，接下来依次改变’+‘的位置并用它记录矩阵各位置的改动次数，最后对2取模。/<em> 当某位置最后的改动次数为偶数，对2取模为0，说明该位置同初始情况相比没有改变，不需要改动 </em>/ 最后只需搜索数组中奇数的个数就是答案。</p>
 <p>实现2：思路同上，具体操作改为用bool型数组记录改动次数，最后找到值为true的数量就是答案。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">​</span><br></pre></td></tr></table></figure>
-<p>#include<iostream></iostream></p>
-<p>#include<cstdio></cstdio></p>
-<p>#include<algorithm></algorithm></p>
-<p>#include<cstring></cstring></p>
-<p>#include<cmath><br>using namespace std;</cmath></p>
-<p>#define ll long long<br>bool vis[4][4];<br>char num[4][4];<br>int main()<br>{<br>    int i,j,k;<br>    int ii[17],jj[17];<br>    int ans=0;<br>    memset(vis,0,sizeof(vis));<br>    for(i=0; i&lt;4; i++)<br>        cin&gt;&gt;num[i];<br>           for(i=0; i&lt;4; i++)//找到’+’的情况进行改动<br>        {<br>            for(j=0; j&lt;4; j++)<br>            {<br>                if(num[i][j]==’+’)<br>                {<br>                    vis[i][j]=!vis[i][j];<br>                    for(int k=0; k&lt;4; k++)//对关联行列改动<br>                    {<br>                        vis[i][k]=!vis[i][k];<br>                        vis[k][j]=!vis[k][j];<br>                    }<br>                }<br>            }<br>        }<br>    for(i=0; i&lt;4; i++)//判断是否需要改动<br>        for(j=0; j&lt;4; j++)<br>            if(vis[i][j]==1)<br>            {<br>                ii[ans]=i+1;<br>                jj[ans]=j+1;<br>                ans++;<br>            }<br>    cout&lt;&lt;ans&lt;&lt;endl;<br>    for(i=0; i&lt;ans; i++)<br>        cout&lt;&lt;ii[i]&lt;&lt;’ ‘&lt;&lt;jj[i]&lt;&lt;endl;<br>    return 0;<br>}<br>​<code></code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">bool</span> vis[<span class="number">4</span>][<span class="number">4</span>];</span><br><span class="line"><span class="keyword">char</span> num[<span class="number">4</span>][<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i,j,k;</span><br><span class="line">    <span class="keyword">int</span> ii[<span class="number">17</span>],jj[<span class="number">17</span>];</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span>(vis));</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">4</span>; i++)</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;num[i];</span><br><span class="line">           <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">4</span>; i++)<span class="comment">//找到'+'的情况进行改动</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;<span class="number">4</span>; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(num[i][j]==<span class="string">'+'</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    vis[i][j]=!vis[i][j];</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>; k&lt;<span class="number">4</span>; k++)<span class="comment">//对关联行列改动</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        vis[i][k]=!vis[i][k];</span><br><span class="line">                        vis[k][j]=!vis[k][j];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">4</span>; i++)<span class="comment">//判断是否需要改动</span></span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;<span class="number">4</span>; j++)</span><br><span class="line">            <span class="keyword">if</span>(vis[i][j]==<span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                ii[ans]=i+<span class="number">1</span>;</span><br><span class="line">                jj[ans]=j+<span class="number">1</span>;</span><br><span class="line">                ans++;</span><br><span class="line">            &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;ans; i++)</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;ii[i]&lt;&lt;<span class="string">' '</span>&lt;&lt;jj[i]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -406,8 +403,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -457,6 +463,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目大意："><span class="nav-number">1.</span> <span class="nav-text">题目大意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解："><span class="nav-number">2.</span> <span class="nav-text">题解：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -497,7 +519,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共5.3k字</span>
+  <span class="post-count">博客全站共5.6k字</span>
 </div>
         
 
