@@ -236,6 +236,140 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/15/poj-1328-Radar-Installation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kyj">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="浮生若梦，为欢几何">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/15/poj-1328-Radar-Installation/" itemprop="url">poj 1328 Radar Installation</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-15T19:11:28+08:00">
+                2018-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://cn.vjudge.net/contest/246672#problem/C" target="_blank" rel="noopener">原题</a></p>
+<h3 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h3><p><strong>x轴上方有n个小岛，现在x轴上建造雷达，每个雷达的辐射范围是d为半径的圆。求：为使所有小岛被辐射到，应当建造几个雷达。</strong></p>
+<h3 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h3><p>情况：</p>
+<p>1、要使小岛被辐射到，则小岛距离雷达距离小于等于雷达半径，</p>
+<p>但通过雷达位置判断与小岛距离是难以实现的。</p>
+<p>解决：</p>
+<p>1、依次记录每个小岛可以被辐射到的雷达位置的范围并排序，若范围有交集则可以共同使用一雷达，若无交集则新建雷达。eg.   岛B左边界小于等于岛A右边界，则当前不需新建雷达，岛C左边界小于等于岛B但大于岛A边界，则当前应当新建一个雷达。</p>
+<p>注意：岛与雷达距离计算公式：sqrt( (double) d <em> d - y </em> y);</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">​</span><br></pre></td></tr></table></figure>
+<p>#include<iostream></iostream></p>
+<p>#include<cstdio></cstdio></p>
+<p>#include<algorithm></algorithm></p>
+<p>#include<cstring></cstring></p>
+<p>#include<cmath><br>using namespace std;</cmath></p>
+<p>#define ll long long<br>int n,d;<br>struct emm<br>{<br>    double r,l;<br>} isl[1001];//记录各岛可以被辐射的左右边界<br>bool cmp(emm a,emm b)<br>{<br>    return a.l&lt;b.l;<br>}<br>int main()<br>{<br>    int cc=1;<br>    ios::sync_with_stdio(false);<br>    while(cin&gt;&gt;n&gt;&gt;d)<br>    {<br>        if(n==0&amp;&amp;d==0)break;<br>        int ans=1;//记录雷达个数,起始为一个雷达<br>        bool f=false;<br>        int x,y;<br>        for(int i=0; i&lt;n; i++)<br>        {<br>            scanf(“%d%d”, &amp;x, &amp;y);<br>            if(y&gt;d)f=true;//岛到x轴垂直距离比d大时无解<br>            else//记录左右路径，注意double<br>            {<br>                double len=sqrt((double)d<em>d-y</em>y);<br>                isl[i].r=(double)x+len;<br>                isl[i].l=(double)x-len;<br>            }<br>        }<br>        if(f)<br>        {<br>            cout&lt;&lt;”Case “&lt;&lt;cc++&lt;&lt;”: -1”&lt;&lt;endl;<br>            continue;<br>        }<br>        sort(isl, isl+n,cmp);//对左边界排序<br>        double now=isl[0].r;//当前雷达辐射范围右边界<br>        for(int i=1; i&lt;n; i++)//判断是否在辐射范围之内<br>        {<br>            if(isl[i].r&lt;now)now=isl[i].r;<br>            else if(now&lt;isl[i].l)<br>            {<br>                now=isl[i].r;<br>                ans++;<br>            }<br>        }<br>        cout&lt;&lt;”Case “&lt;&lt;cc++&lt;&lt;”: “&lt;&lt;ans&lt;&lt;endl;<br>    }<br>    return 0;<br>}<br>​<code></code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/15/POJ-2965-The-Pilots-Brothers-refrigerator/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -442,8 +576,9 @@
         
           
             <p><a href="https://cn.vjudge.net/contest/246672#problem/A" target="_blank" rel="noopener">原题</a><br>题解：因为题目数据量不大，所以其实一维二维都可以。在这里将矩阵用一串二进制数表示，异或操作进行翻转，注意判断行列。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> ll long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> num[<span class="number">17</span>]= &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> k;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">pd</span><span class="params">()</span><span class="comment">//判断是否全部同向</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>; i&lt;=<span class="number">16</span>; i++)</span><br><span class="line">        <span class="keyword">if</span>(num[i]!=num[i<span class="number">-1</span>])<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fz</span><span class="params">(<span class="keyword">int</span> i)</span><span class="comment">//翻转操作</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    num[i]^=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(i%<span class="number">4</span>!=<span class="number">0</span>)num[i+<span class="number">1</span>]^=<span class="number">1</span>;<span class="comment">//不在最后一列</span></span><br><span class="line">    <span class="keyword">if</span>(i%<span class="number">4</span>!=<span class="number">1</span>)num[i<span class="number">-1</span>]^=<span class="number">1</span>;<span class="comment">//不在第一列</span></span><br><span class="line">    <span class="keyword">if</span>(i&gt;<span class="number">4</span>)num[i<span class="number">-4</span>]^=<span class="number">1</span>;<span class="comment">//不在第一行</span></span><br><span class="line">    <span class="keyword">if</span>(i&lt;<span class="number">13</span>)num[i+<span class="number">4</span>]^=<span class="number">1</span>;<span class="comment">//不在最后一行</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> j,<span class="keyword">int</span> now,<span class="keyword">int</span> all)</span><span class="comment">//枚举过程，j指到了第几个棋子，now指现在翻转的次数，all指这一轮应当翻转的总次数（1-16）</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">if</span>(now==all)<span class="comment">//翻转次数到这一轮最大值</span></span><br><span class="line">    &#123;</span><br><span class="line">        k=pd();</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=j+<span class="number">1</span>; i&lt;=<span class="number">16</span>; i++)<span class="comment">//广搜本质</span></span><br><span class="line">    &#123;</span><br><span class="line">        fz(i);</span><br><span class="line">        bfs(i,now+<span class="number">1</span>,all);</span><br><span class="line">        <span class="keyword">if</span>(k) <span class="keyword">return</span>;</span><br><span class="line">        fz(i);<span class="comment">//还原。</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=<span class="number">16</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;a;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="string">'w'</span>)</span><br><span class="line">            num[i]=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    k=pd();</span><br><span class="line">    <span class="keyword">if</span>(k)<span class="built_in">cout</span>&lt;&lt;<span class="number">0</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>( i=<span class="number">1</span>; i&lt;=<span class="number">16</span>; i++)<span class="comment">//一次遍历找出最小翻转次数</span></span><br><span class="line">        &#123;</span><br><span class="line">            k=<span class="number">0</span>;</span><br><span class="line">            bfs(<span class="number">0</span>,<span class="number">0</span>,i);</span><br><span class="line">            <span class="keyword">if</span>(k)<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(k)<span class="built_in">cout</span>&lt;&lt;i&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">cout</span>&lt;&lt;<span class="string">"Impossible"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">​</span><br></pre></td></tr></table></figure>
-<p><code>`</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">​</span><br></pre></td></tr></table></figure>
+<h1 id="include"><a href="#include" class="headerlink" title="include"></a>include<iostream></iostream></h1><h1 id="include-1"><a href="#include-1" class="headerlink" title="include"></a>include<cstdio></cstdio></h1><h1 id="include-2"><a href="#include-2" class="headerlink" title="include"></a>include<algorithm></algorithm></h1><h1 id="include-3"><a href="#include-3" class="headerlink" title="include"></a>include<cstring></cstring></h1><h1 id="include-4"><a href="#include-4" class="headerlink" title="include"></a>include<cmath></cmath></h1><p>using namespace std;</p>
+<h1 id="define-ll-long-long"><a href="#define-ll-long-long" class="headerlink" title="define ll long long"></a>define ll long long</h1><p>int num[17]= {0};<br>int k;<br>int pd()//判断是否全部同向<br>{<br>    int i;<br>    for(i=2; i&lt;=16; i++)<br>        if(num[i]!=num[i-1])return 0;<br>    return 1;<br>}<br>void fz(int i)//翻转操作<br>{<br>    num[i]^=1;<br>    if(i%4!=0)num[i+1]^=1;//不在最后一列<br>    if(i%4!=1)num[i-1]^=1;//不在第一列<br>    if(i&gt;4)num[i-4]^=1;//不在第一行<br>    if(i&lt;13)num[i+4]^=1;//不在最后一行<br>}<br>void bfs(int j,int now,int all)//枚举过程，j指到了第几个棋子，now指现在翻转的次数，all指这一轮应当翻转的总次数（1-16）<br>{<br>    int i;<br>    if(now==all)//翻转次数到这一轮最大值<br>    {<br>        k=pd();<br>        return;<br>    }<br>    for(i=j+1; i&lt;=16; i++)//广搜本质<br>    {<br>        fz(i);<br>        bfs(i,now+1,all);<br>        if(k) return;<br>        fz(i);//还原。<br>    }<br>}<br>int main()<br>{<br>    char a;<br>    int i;<br>    ios::sync_with_stdio(false);<br>    for(i=1; i&lt;=16; i++)<br>    {<br>        cin&gt;&gt;a;<br>        if(a==’w’)<br>            num[i]=1;<br>    }<br>    k=pd();<br>    if(k)cout&lt;&lt;0&lt;&lt;endl;<br>    else<br>    {<br>        for( i=1; i&lt;=16; i++)//一次遍历找出最小翻转次数<br>        {<br>            k=0;<br>            bfs(0,0,i);<br>            if(k)break;<br>        }<br>        if(k)cout&lt;&lt;i&lt;&lt;endl;<br>        else cout&lt;&lt;”Impossible”&lt;&lt;endl;<br>    }<br>return 0;<br>}<br>​<code></code></p>
 
           
         
@@ -921,7 +1056,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -996,7 +1131,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共4.9k字</span>
+  <span class="post-count">博客全站共5.3k字</span>
 </div>
         
 

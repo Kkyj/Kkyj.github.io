@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="第一步：BIOS前提：“只读内存”ROM发明后，开机程序刷入ROM，该程序叫做“基本输入输出系统”简称BIOS 1、计算机通电后首先读取ROM中的开机程序 ​    细节：电源刚开始供电时，电压还不稳定，主板控制芯片向CPU发出一个reset（重置）信号，让CPU初始化，稳定供电后，芯片撤去reset信号，CPU会自动的将其CS寄存器设定为0xFFFF，将其IP寄存器设定为0x0000。由于CS:">
+<meta name="description" content="原题 题目大意：x轴上方有n个小岛，现在x轴上建造雷达，每个雷达的辐射范围是d为半径的圆。求：为使所有小岛被辐射到，应当建造几个雷达。 题解：情况： 1、要使小岛被辐射到，则小岛距离雷达距离小于等于雷达半径， 但通过雷达位置判断与小岛距离是难以实现的。 解决： 1、依次记录每个小岛可以被辐射到的雷达位置的范围并排序，若范围有交集则可以共同使用一雷达，若无交集则新建雷达。eg.   岛B左边界小于等">
 <meta property="og:type" content="article">
-<meta property="og:title" content="简述计算机启动过程">
-<meta property="og:url" content="http://yoursite.com/2018/04/14/简述计算机启动过程/index.html">
+<meta property="og:title" content="poj 1328 Radar Installation">
+<meta property="og:url" content="http://yoursite.com/2018/08/15/poj-1328-Radar-Installation/index.html">
 <meta property="og:site_name" content="浮生若梦，为欢几何">
-<meta property="og:description" content="第一步：BIOS前提：“只读内存”ROM发明后，开机程序刷入ROM，该程序叫做“基本输入输出系统”简称BIOS 1、计算机通电后首先读取ROM中的开机程序 ​    细节：电源刚开始供电时，电压还不稳定，主板控制芯片向CPU发出一个reset（重置）信号，让CPU初始化，稳定供电后，芯片撤去reset信号，CPU会自动的将其CS寄存器设定为0xFFFF，将其IP寄存器设定为0x0000。由于CS:">
+<meta property="og:description" content="原题 题目大意：x轴上方有n个小岛，现在x轴上建造雷达，每个雷达的辐射范围是d为半径的圆。求：为使所有小岛被辐射到，应当建造几个雷达。 题解：情况： 1、要使小岛被辐射到，则小岛距离雷达距离小于等于雷达半径， 但通过雷达位置判断与小岛距离是难以实现的。 解决： 1、依次记录每个小岛可以被辐射到的雷达位置的范围并排序，若范围有交集则可以共同使用一雷达，若无交集则新建雷达。eg.   岛B左边界小于等">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-15T05:45:18.210Z">
+<meta property="og:updated_time" content="2018-08-15T11:40:21.645Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="简述计算机启动过程">
-<meta name="twitter:description" content="第一步：BIOS前提：“只读内存”ROM发明后，开机程序刷入ROM，该程序叫做“基本输入输出系统”简称BIOS 1、计算机通电后首先读取ROM中的开机程序 ​    细节：电源刚开始供电时，电压还不稳定，主板控制芯片向CPU发出一个reset（重置）信号，让CPU初始化，稳定供电后，芯片撤去reset信号，CPU会自动的将其CS寄存器设定为0xFFFF，将其IP寄存器设定为0x0000。由于CS:">
+<meta name="twitter:title" content="poj 1328 Radar Installation">
+<meta name="twitter:description" content="原题 题目大意：x轴上方有n个小岛，现在x轴上建造雷达，每个雷达的辐射范围是d为半径的圆。求：为使所有小岛被辐射到，应当建造几个雷达。 题解：情况： 1、要使小岛被辐射到，则小岛距离雷达距离小于等于雷达半径， 但通过雷达位置判断与小岛距离是难以实现的。 解决： 1、依次记录每个小岛可以被辐射到的雷达位置的范围并排序，若范围有交集则可以共同使用一雷达，若无交集则新建雷达。eg.   岛B左边界小于等">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/14/简述计算机启动过程/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/15/poj-1328-Radar-Installation/"/>
 
 
 
 
 
-  <title>简述计算机启动过程 | 浮生若梦，为欢几何</title>
+  <title>poj 1328 Radar Installation | 浮生若梦，为欢几何</title>
   
 
 
@@ -236,7 +236,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/14/简述计算机启动过程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/15/poj-1328-Radar-Installation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="kyj">
@@ -253,7 +253,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">简述计算机启动过程</h1>
+          <h1 class="post-title" itemprop="name headline">poj 1328 Radar Installation</h1>
         
 
         <div class="post-meta">
@@ -265,8 +265,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-14T13:17:49+08:00">
-                2018-04-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-15T19:11:28+08:00">
+                2018-08-15
               </time>
             
 
@@ -303,18 +303,21 @@
       
 
       
-        <h2 id="第一步：BIOS"><a href="#第一步：BIOS" class="headerlink" title="第一步：BIOS"></a>第一步：BIOS</h2><p>前提：“只读内存”ROM发明后，开机程序刷入ROM，该程序叫做“基本输入输出系统”简称BIOS</p>
-<p><strong>1、计算机通电后首先读取ROM中的开机程序</strong></p>
-<p>​    细节：电源刚开始供电时，电压还不稳定，主板控制芯片向CPU发出一个reset（重置）信号，让CPU初始化，稳定供电后，芯片撤去reset信号，CPU会自动的将其CS寄存器设定为0xFFFF，将其IP寄存器设定为0x0000。由于CS:IP指出了下一条指令的地址，因此CPU会跳到0xFFFF:0x0000处开始执行命令，而它只是存放一条跳转指令，跳转到BIOS可执行代码区。</p>
-<p><strong>2、BIOS程序首先加电自检POST，就是查看计算机关键硬件能否满足运行的基本条件</strong></p>
-<p>​    细节：因为POST检测过程在显卡初始化之前，如果发现错误是无法通过屏幕显示的，所以当POST自检中发现致命错误，是通过不同含义的声音（长短和次数）警告，然后启动终止。在正常情况下，POST过程进行得非常快，几乎无法感觉到它的存在，POST结束之后就会调用其它代码来进行更完整的硬件检测。</p>
-<p><strong>3、接下来BIOS将查找其他设备的BIOS</strong></p>
-<p>​    细节：首先查找显卡的BIOS，这时多数显卡会在屏幕上显示一些初始信息，如生产厂商、图形芯片类型等内容。接着查找完所有其他设备的BIOS 之后，系统BIOS 将显示出自己的启动画面，包括系统BIOS的类型、序列号和版本号等内容，同时屏幕底端左下角会出现主板信息代码，包含bios的日期、主板芯片组型号、主板的识别编码及厂商代码等。</p>
-<p><strong>4、最后BIOS 进行其他检测</strong></p>
-<p>​    细节：首先<em>检测cpu的类型和工作频率</em>，并将检测结果显示在屏幕上，然后系统BIOS开始<em>测试主机所有的内存容量</em>，并同时在屏幕上显示内存测试的数值，接下来开始<em>检测系统中安装的一些标准硬件设备</em>，这些设备包括硬盘、cd-rom、软驱等设备。标准设备检测完后，系统BIOS内部的支持即插即用的代码将开始<em>检测和配置系统中安装的即插即用设备</em>，每找到一个设备之后，系统bios都会在屏幕上显示出设备的名称和型号等信息，同时为该设备分配中断、dma通道和i／0端口等资源。</p>
-<p>所有硬件检测配置完后，。</p>
-<p>##第二步：</p>
-<p>待续未完。。。</p>
+        <p><a href="https://cn.vjudge.net/contest/246672#problem/C" target="_blank" rel="noopener">原题</a></p>
+<h3 id="题目大意："><a href="#题目大意：" class="headerlink" title="题目大意："></a>题目大意：</h3><p><strong>x轴上方有n个小岛，现在x轴上建造雷达，每个雷达的辐射范围是d为半径的圆。求：为使所有小岛被辐射到，应当建造几个雷达。</strong></p>
+<h3 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h3><p>情况：</p>
+<p>1、要使小岛被辐射到，则小岛距离雷达距离小于等于雷达半径，</p>
+<p>但通过雷达位置判断与小岛距离是难以实现的。</p>
+<p>解决：</p>
+<p>1、依次记录每个小岛可以被辐射到的雷达位置的范围并排序，若范围有交集则可以共同使用一雷达，若无交集则新建雷达。eg.   岛B左边界小于等于岛A右边界，则当前不需新建雷达，岛C左边界小于等于岛B但大于岛A边界，则当前应当新建一个雷达。</p>
+<p>注意：岛与雷达距离计算公式：sqrt( (double) d <em> d - y </em> y);</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">​</span><br></pre></td></tr></table></figure>
+<p>#include<iostream></iostream></p>
+<p>#include<cstdio></cstdio></p>
+<p>#include<algorithm></algorithm></p>
+<p>#include<cstring></cstring></p>
+<p>#include<cmath><br>using namespace std;</cmath></p>
+<p>#define ll long long<br>int n,d;<br>struct emm<br>{<br>    double r,l;<br>} isl[1001];//记录各岛可以被辐射的左右边界<br>bool cmp(emm a,emm b)<br>{<br>    return a.l&lt;b.l;<br>}<br>int main()<br>{<br>    int cc=1;<br>    ios::sync_with_stdio(false);<br>    while(cin&gt;&gt;n&gt;&gt;d)<br>    {<br>        if(n==0&amp;&amp;d==0)break;<br>        int ans=1;//记录雷达个数,起始为一个雷达<br>        bool f=false;<br>        int x,y;<br>        for(int i=0; i&lt;n; i++)<br>        {<br>            scanf(“%d%d”, &amp;x, &amp;y);<br>            if(y&gt;d)f=true;//岛到x轴垂直距离比d大时无解<br>            else//记录左右路径，注意double<br>            {<br>                double len=sqrt((double)d<em>d-y</em>y);<br>                isl[i].r=(double)x+len;<br>                isl[i].l=(double)x-len;<br>            }<br>        }<br>        if(f)<br>        {<br>            cout&lt;&lt;”Case “&lt;&lt;cc++&lt;&lt;”: -1”&lt;&lt;endl;<br>            continue;<br>        }<br>        sort(isl, isl+n,cmp);//对左边界排序<br>        double now=isl[0].r;//当前雷达辐射范围右边界<br>        for(int i=1; i&lt;n; i++)//判断是否在辐射范围之内<br>        {<br>            if(isl[i].r&lt;now)now=isl[i].r;<br>            else if(now&lt;isl[i].l)<br>            {<br>                now=isl[i].r;<br>                ans++;<br>            }<br>        }<br>        cout&lt;&lt;”Case “&lt;&lt;cc++&lt;&lt;”: “&lt;&lt;ans&lt;&lt;endl;<br>    }<br>    return 0;<br>}<br>​<code></code></p>
 
       
     </div>
@@ -339,8 +342,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/13/linux介绍及基于win10的Ubuntu安装/" rel="next" title="linux介绍及基于win10的Ubuntu安装">
-                <i class="fa fa-chevron-left"></i> linux介绍及基于win10的Ubuntu安装
+              <a href="/2018/08/15/POJ-2965-The-Pilots-Brothers-refrigerator/" rel="next" title="POJ 2965- The Pilots Brothers' refrigerator">
+                <i class="fa fa-chevron-left"></i> POJ 2965- The Pilots Brothers' refrigerator
               </a>
             
           </div>
@@ -348,10 +351,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/14/POJ-1753-Flip-Game-状压-搜索/" rel="prev" title="POJ 1753 Flip Game(状压+搜索)">
-                POJ 1753 Flip Game(状压+搜索) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -472,7 +471,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步：BIOS"><span class="nav-number">1.</span> <span class="nav-text">第一步：BIOS</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目大意："><span class="nav-number">1.</span> <span class="nav-text">题目大意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题解："><span class="nav-number">2.</span> <span class="nav-text">题解：</span></a></li></ol></div>
             
 
           </div>
